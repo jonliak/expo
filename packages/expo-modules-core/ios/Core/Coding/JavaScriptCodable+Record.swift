@@ -19,6 +19,12 @@ import ExpoModulesJSI
 // the defaulted overload materializes an owning value and forwards.
 
 extension Record {
+  // A record decodes only from an object.
+  @inlinable
+  public static var decodableKinds: JavaScriptValueKinds {
+    return .object
+  }
+
   @JavaScriptActor
   @inlinable
   public static func decode(_ value: borrowing JavaScriptValue, in runtime: borrowing JavaScriptRuntime) throws -> Self
